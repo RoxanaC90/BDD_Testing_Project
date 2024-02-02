@@ -37,12 +37,12 @@ class HomePage(BasePage):
     INPUT_NAME = (By.NAME, 'name')
     INPUT_EMAIL_NEWSLETTER = (By.NAME, 'email')
     ABONEAZAMA = (By.CSS_SELECTOR, 'div>div>div>form>div:nth-child(1)>div:nth-child(3)>button')
-    EMAIL_ERROR = (By.XPATH, '//*[@id="main-container"]/section[3]/div/div/div/form/div[1]/div[2]/span')
+    EMAIL_ERROR = (By.CSS_SELECTOR, '#main-container > section:nth-child(5) > div > div > div > form > div:nth-child(1) > '
+                             'div.form-group.col-md-4.has-error >')
     NEWSLETTER_TITLE = By.CSS_SELECTOR, '//h3'
 
     def navigate_to_home_page(self):
         self.driver.get(self.HOME_PAGE_URL)
-
 
     def click_accept_cookies_button(self):
         self.click_if_present_by_selector(*self.ACCEPT_ALL_COOKIES_BUTTON)
