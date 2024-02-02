@@ -11,7 +11,19 @@ Feature:Test the functionality of the Home Page and of the associated functions
      When I click Search button
      Then At least 10 products are displayed
 
-@Filter
+
+@Search2
+  Scenario Outline: Test the search functionality
+    When I click on the Search bar -search2
+    When I search after "<product_name>"
+    When I click the search button
+    Then I verify that results contain search product_name "<product_name>"
+  Examples:
+    | product_name |
+    | samsung      |
+    | xiaomi       |
+
+  @Filter
    Scenario: Check the functionality of the Filter feature
      When I click on the Search bar- Scenario 2
      When I search ”Monitoare Gaming” in the Search Bar- Scenario 2

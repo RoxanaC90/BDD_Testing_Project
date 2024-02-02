@@ -76,16 +76,6 @@ def step_impl(context):
     context.login_page.click_continue_button()
 
 
-# @then('The main error message is displayed - Scenario 3')
-# def step_impl(context):
-#     context.login_page.is_error_invalid_message_displayed()
-#
-#
-# @then('The error message contains "Email invalid" message - Scenario 3')
-# def step_impl(context):
-#     context.login_page.get_error_invalid_message_text()
-
-
 """@Login4"""
 
 

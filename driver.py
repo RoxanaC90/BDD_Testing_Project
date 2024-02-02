@@ -8,10 +8,9 @@ from time import sleep
 class Driver(unittest.TestCase):
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
-    driver.implicitly_wait(10)
-    driver.set_page_load_timeout(10)
+    driver.implicitly_wait(5)
+    driver.set_page_load_timeout(5)
     driver.maximize_window()
 
     def close(self):
-        sleep(3)
         self.driver.quit()

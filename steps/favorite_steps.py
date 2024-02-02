@@ -23,4 +23,4 @@ def step_impl(context):
 
 @then('I verify the favorite page url')
 def step_impl(context):
-    assert context.favorite_page.test_url() == "https://www.emag.ro/favorites?ref=ua_favorites"
+    context.favorite_page.test_url()

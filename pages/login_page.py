@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
-from time import sleep
 
 
 class LoginPage(BasePage):
@@ -44,9 +43,3 @@ class LoginPage(BasePage):
 
     def get_no_mail_error_message_text(self):
         return self.get_text(self.MESSAGE_ERROR_NO_INPUT_EMAIL)
-
-    """@Login5"""
-
-    def test_login_page_url(self):
-        login_page_url = self.login_page
-        return login_page_url

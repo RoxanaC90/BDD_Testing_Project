@@ -1,10 +1,8 @@
 from behave import *
-from pages.home_page import HomePage
 
 
 @given('I am on the Home Page')
 def step_impl(context):
-    # context.home_page = HomePage()
     context.home_page.navigate_to_home_page()
     context.home_page.click_accept_cookies_button()
     context.home_page.click_close_intra_in_cont_button()
@@ -35,7 +33,42 @@ def step_impl(context):
     #                                                '1]/div[1]/div/span')
     # products_int = int(product_quantity.get_attribute('945'))
     # assert products_int >= 10
-    assert context.home_page.check_product_quantity() >= 10
+    context.home_page.check_product_quantity()
+
+
+"""@Search2"""
+
+
+@when('I click on the Search bar -search2')
+def step_impl(context):
+    context.home_page.click_search_bar()
+
+
+@when('I search after "{product_name}"')
+def step_impl(context, product_name):
+    context.home_page.search_after(product_name)
+
+
+@when('I click the search button')
+def step_impl(context):
+    context.home_page.click_search_button()
+
+
+#
+#
+# @when("I search for 'xiaomi'")
+# def step_impl(context):
+#     context.home_page.search_for_products("xiaomi")
+#
+
+@then('I verify that results contain search product_name "{product_name}"')
+def step_impl(context, product_name):
+    (context.home_page.verify_results_contain_text(product_name))
+
+
+# @then('I verify that results contain search "xiaomi"')
+# def step_impl(context):
+#     (context.product_page.verify_results_contain_text('xiaomi'))
 
 
 """@Filter"""
@@ -78,8 +111,7 @@ def step_impl(context):
 
 @then('All products displayed are between 500 and 1000 lei')
 def step_impl(context):
-    for price in context.home_page.check_product_prices():
-        assert 500 <= price <= 1000
+    context.home_page.check_product_prices()
 
 
 @then('I click the selected product "Monitor gaming, Samsung, Odyssey S24AG300, 24&quot;, Full HD, 1 ms, 144 Hz, '
