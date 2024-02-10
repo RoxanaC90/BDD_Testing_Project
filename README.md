@@ -54,7 +54,7 @@ Test scenarios chosen for evaluation include:
 
 - Check that the Logo eMAG is displayed
 
-- Check an email without @
+- Check that an error message is displayed when the user enters an mail without @
 
 - Check "Camp obligatoriu" message is displayed when the user tries to log in without providing an email
 - Check the functionality of the redirection to the Login Page "https://auth.emag.ro/user/login"
