@@ -1,12 +1,12 @@
 from behave import *
 
 
-@given('I am on the "Robot de bucatarie Bosch MCM3100W, 800 W, bol 2.3 l, 2 viteze, alb/ gri" page')
+@given('I am on the product page')
 def step_impl(context):
     context.favorite_page.navigate_to_product_page_url()
 
 
-@when('I click "Adauga la favorite" button')
+@when('I click Adauga la favorite button')
 def step_impl(context):
     context.favorite_page.click_adauga_la_favorite_button()
 

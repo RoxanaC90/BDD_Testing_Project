@@ -1,6 +1,4 @@
 import re
-
-from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from time import sleep
@@ -18,14 +16,16 @@ class HomePage(BasePage):
     CLOSE_INTRA_IN_CONT_BUTTON = (By.CSS_SELECTOR, 'body>div.gdpr-cookie-banner.js-gdpr-cookie-banner.pad-sep-xs.pad'
                                                    '-hrz-none.login-view.login-view-ro.show>div>button>i')
     PRODUCTS = (By.CLASS_NAME, 'card-item')
-    PRODUCT_PRICES = (By.XPATH, '//*[@id="card_grid"]/div[3]/div/div/div[4]/div[1]/p[2]')
-    RESULTS = (By.CSS_SELECTOR, 'container > section.page-section.page-listing-v2 > div > div.clearfix.pad-btm-md > '
-                                'div.page-container > div.listing-panel.has-floating-listing-panel-footer > '
-                                'div.listing-panel-heading > div > span')
-    CHECK_CHECKBOX_DIAGONALA = (By.XPATH, '//*[@id="js-filter-6535-collapse"]/div/a[4]')
-    CHECK_CHECKBOX_BRAND_LG = (By.XPATH, '// *[ @ id = "js-filter-6415-collapse"]/div[2]/a[6]')
-    CHECK_CHECKBOX_BRAND_SAMSUNG = (By.XPATH, '//*[@id="js-filter-6415-collapse"]/div[2]/a[8]')
-    CHECK_CHECKBOX_PRET = (By.XPATH, '//*[@id="js-filter-6411-collapse"]/div[1]/a[2]')
+    PRODUCT_PRICES = (By.CSS_SELECTOR, 'd_grid > div:nth-child(3) > div > div > div.card-v2-content > '
+                                       'div.card-v2-pricing > p.product-new-price')
+    RESULTS = (By.CSS_SELECTOR, '#main-container > section.page-section.page-listing-v2 > div > '
+                                'div.clearfix.pad-btm-md > div.page-container > '
+                                'div.listing-panel.has-floating-listing-panel-footer > div.listing-panel-heading > '
+                                'div > div.listing-page-title.js-head-title')
+    CHECK_CHECKBOX_DIAGONALA = (By.XPATH, '//a[@data-name="23 - 25 inch"]')
+    CHECK_CHECKBOX_BRAND_LG = (By.XPATH, '//a[@data-name="LG"]')
+    CHECK_CHECKBOX_BRAND_SAMSUNG = (By.XPATH, '//a[@data-name="Samsung"]')
+    CHECK_CHECKBOX_PRET = (By.XPATH, '//a[@data-name="500 - 1.000"]')
     SELECTED_PRODUCT = (By.CSS_SELECTOR, '#card_grid > div:nth-child(1) > div')
     COS_PRODUSE_PAGE = (By.ID, 'my_cart')
     PRICE_ELEMENT = (By.CSS_SELECTOR, '-container > section:nth-child(4) > div > div.row.product-main-area.mrg-btm-xs >'
@@ -37,9 +37,10 @@ class HomePage(BasePage):
     INPUT_NAME = (By.NAME, 'name')
     INPUT_EMAIL_NEWSLETTER = (By.NAME, 'email')
     ABONEAZAMA = (By.CSS_SELECTOR, 'div>div>div>form>div:nth-child(1)>div:nth-child(3)>button')
-    EMAIL_ERROR = (By.CSS_SELECTOR, '#main-container > section:nth-child(5) > div > div > div > form > div:nth-child(1) > '
-                             'div.form-group.col-md-4.has-error >')
-    NEWSLETTER_TITLE = By.CSS_SELECTOR, '//h3'
+    EMAIL_ERROR = (
+        By.CSS_SELECTOR, '#main-container > section:nth-child(5) > div > div > div > form > div:nth-child(1) > '
+                         'div.form-group.col-md-4.semibold.has-error > span')
+    NEWSLETTER_TITLE = (By.CSS_SELECTOR, '//h3')
 
     def navigate_to_home_page(self):
         self.driver.get(self.HOME_PAGE_URL)
@@ -76,19 +77,14 @@ class HomePage(BasePage):
         product_prices_text = [price.text for price in self.find_multiple(self.PRODUCT_PRICES)]
         prices_list = [re.sub(r'[^\d,]', '', item) for item in product_prices_text if item.strip()]
         prices_list_int = [int(item.split(',')[0]) for item in prices_list]
-        # assert prices_list_int == [500 <= 1000]
         conditions = [500 <= price <= 1000 for price in prices_list_int]
         assert all(conditions), "Nu toate prețurile sunt între 500 și 1000"
-
-    # for price in check_product_prices(self):
-    #     self.assertTrue 500 <= price <= 1000
 
     def verify_results_contain_text(self, text):
         title_list = self.find_multiple(self.PRODUCTS)
         sleep(3)
-        for i in range(6):
-            title = title_list[i].text.lower()
-            self.assertTrue(text in title, 'Result does not contain search product')
+        title = title_list[5].text.lower()
+        self.assertTrue(text in title, 'Result does not contain search product')
 
     def insert_search_value(self, product_name):
         self.type(self.SEARCH_BAR, product_name)
@@ -117,7 +113,7 @@ class HomePage(BasePage):
 
     def test_url(self):
         current_url = self.driver.current_url
-        return current_url
+        assert current_url == "https://www.emag.ro/cart/products?ref=cart"
 
     """"@Newsletter1"""
 

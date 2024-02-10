@@ -20,12 +20,12 @@ def step_impl(context):
     context.home_page.click_intra_in_contul_meu()
 
 
-@when('The message "Salut!" is displayed')
+@when('The message Salut! is displayed')
 def step_impl(context):
     context.login_page.is_greetings_message_displayed()
 
 
-@then('The greeting message contains "Salut!" message')
+@then('The greeting message contains Salut! message')
 def step_impl(context):
     context.login_page.get_greetings_message_text()
 
@@ -43,12 +43,12 @@ def step_impl(context):
     context.home_page.click_intra_in_contul_meu()
 
 
-@then('The Logo "eMAG" is displayed')
+@then('The Logo eMAG is displayed')
 def step_impl(context):
     context.login_page.is_logo_is_displayed()
 
 
-@then('The Logo message contains "eMAG" message')
+@then('The Logo message contains eMAG message')
 def step_impl(context):
     context.login_page.get_logo_message_text()
 
@@ -71,9 +71,14 @@ def step_impl(context):
     context.login_page.set_unregistred_email("email_neinregistrat.yahoo.com")
 
 
-@then('I click Continue button')
+@when('I click Continue button')
 def step_impl(context):
     context.login_page.click_continue_button()
+
+
+@then('The error meesage is displayed')
+def step_impl(context):
+    context.login_page.verify_is_message_displayed_or_not()
 
 
 """@Login4"""
@@ -99,7 +104,7 @@ def step_impl(context):
     context.login_page.is_message_error_no_input_email_displayed()
 
 
-@then('Email error text contains "Câmp obligatoriu" message - Scenario 4')
+@then('Email error text contains Câmp obligatoriu message - Scenario 4')
 def step_impl(context):
     context.login_page.get_no_mail_error_message_text()
 
@@ -117,6 +122,6 @@ def step_impl(context):
     context.home_page.click_intra_in_contul_meu()
 
 
-@then('I am redirected to the Login Page "https://auth.emag.ro/user/login"')
+@then('I am redirected to the Login Page https://auth.emag.ro/user/login')
 def step_impl(context):
-    assert context.login_page.current_url() == "https://auth.emag.ro/user/login"
+    context.login_page.test_url_login_page()

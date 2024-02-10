@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
-from time import sleep
 
 
 class FavoritePage(BasePage):
@@ -15,7 +14,7 @@ class FavoritePage(BasePage):
                                                   'div.product-buy-area-wrapper > div.flex-item.hidden-xs>button>i')
 
     FAVORITE_BUTTON = (By.CSS_SELECTOR, '#my_wishlist')
-    PRODUCT = By.XPATH, '//*[@id="list-of-favorites"]/div/div/div[2]/div[1]/h2/a/span'
+    PRODUCT = (By.XPATH, '//*[@id="list-of-favorites"]//a[@data-zone="title"]')
 
     def navigate_to_product_page_url(self):
         self.driver.get(self.PRODUCT_PAGE_URL)
@@ -31,4 +30,4 @@ class FavoritePage(BasePage):
 
     def test_url(self):
         current_url = self.driver.current_url
-        assert current_url == "https://www.emag.ro/favorites?ref=ua_favorites"
+        assert current_url == 'https://www.emag.ro/favorites?ref=ua_favorites'
