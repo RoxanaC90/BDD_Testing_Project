@@ -82,7 +82,6 @@ class HomePage(BasePage):
 
     def verify_results_contain_text(self, text):
         title_list = self.find_multiple(self.PRODUCTS)
-        sleep(3)
         title = title_list[5].text.lower()
         self.assertTrue(text in title, 'Result does not contain search product')
 
@@ -125,7 +124,6 @@ class HomePage(BasePage):
 
     def click_subscript(self):
         self.click(self.ABONEAZAMA)
-        sleep(2)
 
     def is_error_message_displayed(self):
         assert self.is_element_displayed(self.EMAIL_ERROR)
