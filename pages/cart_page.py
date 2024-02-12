@@ -9,7 +9,7 @@ class CartPage(BasePage):
     ADAUGA_IN_COS_BUTTON = (By.XPATH, ('//button[@type="submit" and @class="btn btn-xl btn-primary btn-emag btn-block '
                                        'main-button gtm_680klw yeahIWantThisProduct"]'))
     VEZI_DETALII_COS_BUTTON = (By.LINK_TEXT, 'Vezi detalii cos')
-    PRODUCT = By.PARTIAL_LINK_TEXT, 'Multifunctional Inkjet color Canon TR4650, A4, Wireless , ADF'
+    PRODUCT = (By.PARTIAL_LINK_TEXT, 'Multifunctional Inkjet color Canon TR4650, A4, Wireless , ADF')
     STERGE_COS_BUTTON = (By.CSS_SELECTOR, ('#cart-products > div > div.col-md-8.col-lg-9.main-container-left > '
                                           'div.placeholder.vendors-container > div > div > div.cart-widget.cart-line '
                                           '> div.line-item.line-item-footer.hidden-xs.hidden-sm > '
