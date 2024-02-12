@@ -28,7 +28,7 @@ Feature:Test the functionality of the Home Page and of the associated functions
      When I click on the Search bar- Scenario 2
      When I search Monitoare Gaming in the Search Bar- Scenario 2
      When I click Search button - Scenario 2
-     When I click the checkbox Diagonala at "23-25 inch"
+     When I click the checkbox Diagonala at 23-25 inch
      When I click the checkbox Brand to LG
      When I click the checkbox Brand to Samsung
      When I click the checkbox Pret intre 500 si 1000
