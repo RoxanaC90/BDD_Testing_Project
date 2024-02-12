@@ -72,7 +72,7 @@ def step_impl(context):
     context.home_page.click_search_button()
 
 
-@when('I click the checkbox Diagonala at "23-25 inch"')
+@when('I click the checkbox Diagonala at 23-25 inch')
 def step_impl(context):
     context.home_page.check_checkbox_diagonala()
 
