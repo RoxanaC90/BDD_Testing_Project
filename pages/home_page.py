@@ -1,7 +1,7 @@
 import re
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
-from time import sleep
+
 
 
 class HomePage(BasePage):
@@ -66,9 +66,6 @@ class HomePage(BasePage):
     def click_search_button(self):
         self.click(self.SEARCH_BUTTON)
 
-    def click_the_selected_product(self):
-        self.click(self.SELECTED_PRODUCT)
-
     def check_product_quantity(self):
         found_products = self.find_multiple(self.PRODUCTS)
         assert len(found_products) > 10
@@ -128,8 +125,8 @@ class HomePage(BasePage):
     def is_error_message_displayed(self):
         assert self.is_element_displayed(self.EMAIL_ERROR)
 
-    def get_error_message_text(self):
-        return self.get_text(self.EMAIL_ERROR)
+    def check_error_message_text(self, error_message):
+        actual_message = self.get_text(self.EMAIL_ERROR)
+        assert error_message == actual_message
 
-    def click_the_selectd_product(self):
-        self.wait_scroll_and_click_elem_by_selector(*self.SELECTED_PRODUCT)
+

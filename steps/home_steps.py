@@ -16,11 +16,6 @@ def step_impl(context):
     context.home_page.click_search_bar()
 
 
-@when('I search Monitoare Gaming in the Search Bar')
-def step_impl(context):
-    context.home_page.search_for_products("Monitoare Gaming")
-
-
 @when('I click Search button')
 def step_impl(context):
     context.home_page.click_search_button()
@@ -34,19 +29,9 @@ def step_impl(context):
 """@Search2"""
 
 
-@when('I click on the Search bar -search2')
-def step_impl(context):
-    context.home_page.click_search_bar()
-
-
 @when('I search after "{product_name}"')
 def step_impl(context, product_name):
     context.home_page.search_after(product_name)
-
-
-@when('I click the Search button - Search 2')
-def step_impl(context):
-    context.home_page.click_search_button()
 
 
 @then('I verify that results contain search "{product_name}"')
@@ -57,19 +42,9 @@ def step_impl(context, product_name):
 """@Filter"""
 
 
-@when('I click on the Search bar- Scenario 2')
-def step_impl(context):
-    context.home_page.click_search_bar()
-
-
-@when('I search Monitoare Gaming in the Search Bar- Scenario 2')
-def step_impl(context):
-    context.home_page.search_for_products('Monitoare Gaming')
-
-
-@when('I click Search button - Scenario 2')
-def step_impl(context):
-    context.home_page.click_search_button()
+@when('I search "{searched_product}" in the Search Bar')
+def step_impl(context, searched_product):
+    context.home_page.search_for_products(searched_product)
 
 
 @when('I click the checkbox Diagonala at 23-25 inch')
@@ -97,12 +72,6 @@ def step_impl(context):
     context.home_page.check_product_prices()
 
 
-@then('I click the selected product Monitor gaming, Samsung, Odyssey S24AG300, 24&quot;, Full HD, 1 ms, 144 Hz, '
-      'Freesync Premium, Design ergonomic, HDMI, Negru')
-def step_impl(context):
-    context.home_page.click_the_selectd_product()
-
-
 """@Test_URL"""
 
 
@@ -119,12 +88,12 @@ def step_impl(context):
 ''''@Newsletter'''
 
 
-@when('I set name as "{text}"')
+@when('I set name as "{text}" in the name subscription input box')
 def step_impl(context, text):
     context.home_page.set_name(text)
 
 
-@when('I set email as "{text}"')
+@when('I set email as "{text}" in the email subscription input box')
 def step_impl(context, text):
     context.home_page.set_email(text)
 
@@ -139,9 +108,9 @@ def step_impl(context):
     context.home_page.is_error_message_displayed()
 
 
-@then('The error message contains Email incorect message')
-def step_impl(context):
-    context.home_page.get_error_message_text()
+@then('The error message contains "{error_message}" message')
+def step_impl(context, error_message):
+    context.home_page.check_error_message_text(error_message)
 
 
 ''''@Newsletter2'''

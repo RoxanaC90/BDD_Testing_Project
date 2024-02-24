@@ -18,7 +18,7 @@ def step_impl(context):
 
 @then('I verify that the product is in favorite page')
 def step_impl(context):
-    context.favorite_page.is_product_displayed()
+    context.favorite_page.is_element_displayed()
 
 
 @then('I verify the favorite page url')

@@ -21,7 +21,15 @@ class BasePage(Driver):
         return self.find(locator).send_keys(text)
 
     def is_element_displayed(self, locator):
-        return self.find(locator).is_displayed()
+        is_product_displayed = False
+        try:
+            product_selector = locator
+            product_element = self.find(*product_selector)
+            is_product_displayed = product_element.is_displayed()
+
+        except:
+            pass
+        assert is_product_displayed is True, f"Error: Element is not displayed properly"
 
     def get_text(self, locator):
         return self.find(locator).text
