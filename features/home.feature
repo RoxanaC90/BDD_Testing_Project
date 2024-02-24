@@ -16,7 +16,7 @@ Feature:Test the functionality of the Home Page and of the associated functions
   Scenario Outline: Test the search functionality
     When I click on the Search bar
     When I search after "<product_name>"
-    When I click the Search button
+    When I click Search button
     Then I verify that results contain search "<product_name>"
   Examples:
     | product_name |
@@ -49,7 +49,7 @@ Feature:Test the functionality of the Home Page and of the associated functions
    When I set name as "Ion" in the name subscription input box
    When I set email as "test_emag1.itfactory.ro" in the email subscription input box
    When I click aboneaza-ma
-   Then The error message is displayed
+   Then The error message "Email incorect" is displayed
    Then The error message contains "Email incorect" message
 
 

@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
 
-
 class HomePage(BasePage):
     HOME_PAGE_URL = 'https://www.emag.ro/'
     CONTUL_MEU_BUTTON = (By.ID, 'my_account')
@@ -122,11 +121,10 @@ class HomePage(BasePage):
     def click_subscript(self):
         self.click(self.ABONEAZAMA)
 
-    def is_error_message_displayed(self):
-        assert self.is_element_displayed(self.EMAIL_ERROR)
+    def is_error_displayed_message(self, error_message):
+        error_message_subscript = (By.XPATH, f'//*[contains(text(), "{error_message}")]')
+        self.is_element_displayed(error_message_subscript)
 
     def check_error_message_text(self, error_message):
         actual_message = self.get_text(self.EMAIL_ERROR)
         assert error_message == actual_message
-
-

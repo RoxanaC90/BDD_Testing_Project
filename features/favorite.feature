@@ -6,5 +6,5 @@ Feature: Test the functionality of the Favourite page
  Scenario: Check the functionality of the "Favourite page"
    When I click Adauga la favorite button
    When I click the favourite button
-   Then I verify that the product is in favorite page
+   Then I verify that the product "Robot de bucatarie Bosch MCM3100W" is in favorite page
    Then I verify the favorite page url

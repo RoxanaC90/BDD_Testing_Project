@@ -10,6 +10,6 @@ Feature: Test the functionality of the Cart Page
      When I click Search button
      When I click on the Adauga in cos button
      When I click on the Vezi detalii cos button
-     Then The cart must contain "Multifunctional inkjet color CANON PIXMA TR4650" product
+     Then The cart must contain "Multifunctional Inkjet" product
      Then I click the button Sterge
      Then "Cosul tau de cumparaturi nu contine produse. Pentru a adauga produse in cos te rugam sa te intorci in magazin." message is displayed

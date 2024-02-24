@@ -1,7 +1,6 @@
 from behave import *
 
 
-
 @when('I click on the Adauga in cos button')
 def step_impl(context):
     context.cart_page.click_adauga_in_cos_button()
@@ -14,7 +13,7 @@ def step_impl(context):
 
 @then('The cart must contain "{product_name}" product')
 def step_impl(context, product_name):
-    context.cart_page.is_element_displayed(product_name)
+    context.cart_page.is_product_displayed_cart(product_name)
 
 
 @then('I click the button Sterge')

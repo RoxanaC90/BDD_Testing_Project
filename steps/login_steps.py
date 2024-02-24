@@ -20,27 +20,27 @@ def step_impl(context):
     context.home_page.click_intra_in_contul_meu()
 
 
-@when('The message Salut! is displayed')
-def step_impl(context):
-    context.login_page.is_greetings_message_displayed()
+@when('The message "{greeting_message}" is displayed')
+def step_impl(context, greeting_message):
+    context.login_page.is_greetings_message_displayed(greeting_message)
 
 
-@then('The greeting message contains Salut! message')
-def step_impl(context):
-    context.login_page.get_greetings_message_text()
+@then('The greeting message contains "{greeting_message}" message')
+def step_impl(context, greeting_message):
+    context.login_page.get_greetings_message_text(greeting_message)
 
 
 """@Login2"""
 
 
-@then('The Logo eMAG is displayed')
-def step_impl(context):
-    context.login_page.is_logo_is_displayed()
+@then('The Logo "{logo_text}" is displayed')
+def step_impl(context, logo_text):
+    context.login_page.is_logo_is_displayed(logo_text)
 
 
-@then('The Logo message contains eMAG message')
-def step_impl(context):
-    context.login_page.get_logo_message_text()
+@then('The Logo message contains "{expected_logo_text}" message')
+def step_impl(context, expected_logo_text):
+    context.login_page.check_logo_message_text(expected_logo_text)
 
 
 """@Login3"""
@@ -69,17 +69,17 @@ def step_impl(context):
     context.login_page.click_continue_button()
 
 
-@then('Email error text contains message is displayed')
-def step_impl(context):
-    context.login_page.is_message_error_no_input_email_displayed()
+@then('Email error text "{error_message}" message is displayed')
+def step_impl(context, error_message):
+    context.login_page.is_error_no_input_email_displayed_message(error_message)
 
 
 @then('Email error text contains "{message_text}" message')
 def step_impl(context, message_text):
-    context.login_page.get_no_mail_error_message_text(message_text)
+    context.login_page.check_no_mail_error_message_text(message_text)
 
 
-"""@Login5"""
+"@Test_url_login_page"
 
 
 @then('I am redirected to the Login Page https://auth.emag.ro/user/login')

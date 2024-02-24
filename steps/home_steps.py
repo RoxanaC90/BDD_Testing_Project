@@ -103,9 +103,9 @@ def step_impl(context):
     context.home_page.click_subscript()
 
 
-@then('The error message is displayed')
-def step_impl(context):
-    context.home_page.is_error_message_displayed()
+@then('The error message "{error_message}" is displayed')
+def step_impl(context, error_message):
+    context.home_page.is_error_displayed_message(error_message)
 
 
 @then('The error message contains "{error_message}" message')
@@ -113,19 +113,3 @@ def step_impl(context, error_message):
     context.home_page.check_error_message_text(error_message)
 
 
-''''@Newsletter2'''
-
-
-@when('The title Abonează-te la newsletter eMAG și află de reducerile cu timp limitat! is present')
-def step_impl(context):
-    context.home_page.is_element_present()
-
-
-@when('The title Abonează-te la newsletter eMAG și află de reducerile cu timp limitat! is displayed')
-def step_impl(context):
-    context.home_page.is_title_is_displayed()
-
-
-@then('The title contains contains {message} message -Scenario 3')
-def step_imp(context):
-    context.home_page.get_title_message_text()

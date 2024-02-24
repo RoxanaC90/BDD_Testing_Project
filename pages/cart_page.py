@@ -1,3 +1,5 @@
+from time import sleep
+
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
@@ -8,8 +10,8 @@ class CartPage(BasePage):
     COS_DE_CUMPARATURI_PAGE = 'https://www.emag.ro/cart/products?ref=cart'
     ADAUGA_IN_COS_BUTTON = (By.XPATH, ('//button[@class="btn btn-sm btn-primary btn-emag btn-block '
                                        'yeahIWantThisProduct"][1]'))
-    VEZI_DETALII_COS_BUTTON = (By.LINK_TEXT, 'Vezi detalii cos')
-    PRODUCT = (By.PARTIAL_LINK_TEXT, 'Multifunctional Inkjet color Canon TR4650, A4, Wireless , ADF')
+    VEZI_DETALII_COS_BUTTON = (By.XPATH, '//a[@data-dismiss="modal"]')
+    PRODUCT = (By.PARTIAL_LINK_TEXT, 'Multifunctional Inkjet color Canon Pixma MG2550s, A4, Negru')
     STERGE_COS_BUTTON = (By.CSS_SELECTOR, ('#cart-products > div > div.col-md-8.col-lg-9.main-container-left > '
                                            'div.placeholder.vendors-container > div > div > div.cart-widget.cart-line '
                                            '> div.line-item.line-item-footer.hidden-xs.hidden-sm > '
@@ -27,9 +29,8 @@ class CartPage(BasePage):
         self.click(self.VEZI_DETALII_COS_BUTTON)
 
     def is_product_displayed_cart(self, product_name):
-        product_selector = (
-            By.XPATH(f'//*[contains(text(), "{product_name}")"]'))
-        self.is_element_displayed(product_selector)
+        product = (By.XPATH, f'//*[contains(text(), "{product_name}")]')
+        self.is_element_displayed(product)
 
     def click_sterge_cos_button(self):
         self.click(self.STERGE_COS_BUTTON)

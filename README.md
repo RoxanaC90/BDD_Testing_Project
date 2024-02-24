@@ -52,7 +52,7 @@ Test scenarios chosen for evaluation include:
 
 - Check that the greetings message is displayed on the login page
 
-- Check that the Logo eMAG is displayed
+- Check that the Logo "eMAG" is displayed
 
 - Check that an error message is displayed when the user enters an mail without @
 

@@ -23,9 +23,9 @@ class BasePage(Driver):
     def is_element_displayed(self, locator):
         is_product_displayed = False
         try:
-            product_selector = locator
-            product_element = self.find(*product_selector)
-            is_product_displayed = product_element.is_displayed()
+            # product_selector = locator
+            product_name = self.driver.find_element(*locator)
+            is_product_displayed = product_name.is_displayed()
 
         except:
             pass

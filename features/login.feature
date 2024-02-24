@@ -9,15 +9,15 @@ Feature: Test the functionality of the Login Page
     Scenario: Check that the greetings message is displayed on the login page
       When I click on the Contul meu
       When I click on Intra in cont button
-      When The message Salut! is displayed
-      Then The greeting message contains Salut! message
+      When The message "Salut!" is displayed
+      Then The greeting message contains "Salut!" message
 
 @Login2
     Scenario: Check that the Logo eMAG is displayed
       When I click on the Contul meu
       When I click on Intra in cont button
-      Then The Logo eMAG is displayed
-      Then The Logo message contains eMAG message
+      Then The Logo "eMAG" is displayed
+      Then The Logo message contains "eMAG" message
 
 @Login3
 
@@ -35,7 +35,7 @@ Feature: Test the functionality of the Login Page
      When I click on the Contul meu
      When I click on Intra in cont button
      When I click on the Continue button
-     Then Email error text contains message is displayed
+     Then Email error text "Câmp obligatoriu" message is displayed
      Then Email error text contains "Câmp obligatoriu" message
 
 @Test_url_login_page
