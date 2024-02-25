@@ -19,9 +19,6 @@ class FavoritePage(BasePage):
     def click_favorite_button(self):
         self.click(self.FAVORITE_BUTTON)
 
-    def is_product_displayed(self):
-        assert self.is_element_displayed(self.PRODUCT)
-
     def is_product_displayed_favorite(self, product_name):
         product = (By.XPATH, f'//*[@title[contains(.,"{product_name}")]]')
         self.is_element_displayed(product)
