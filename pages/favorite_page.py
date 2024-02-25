@@ -5,13 +5,7 @@ from pages.base_page import BasePage
 class FavoritePage(BasePage):
     PRODUCT_PAGE_URL = (
         "https://www.emag.ro/robot-de-bucatarie-bosch-800-w-bol-2-3-l-2-viteze-alb-gri-mcm3100w/pd/DZ1KJYBBM/")
-    ADAUGA_LA_FAVORITE_BUTTON = (By.CSS_SELECTOR, ('#main-container > section:nth-child(4) > div > '
-                                                   'div.row.product-main-area.mrg-btm-xs > '
-                                                   'div.col-sm-5.col-md-8.col-lg-8 >'
-                                                   'div > div.row.highlights-container > div:nth-child(2) > '
-                                                   'form.main-product-form > div.highlight-box > '
-                                                   'div.product-highlight.product-page-actions.js-product-page-actions >'
-                                                   'div.product-buy-area-wrapper > div.flex-item.hidden-xs>button>i'))
+    ADAUGA_LA_FAVORITE_BUTTON = (By.XPATH, '//button[@class="add-to-favorites btn"]')
 
     FAVORITE_BUTTON = (By.CSS_SELECTOR, '#my_wishlist')
     PRODUCT = (By.XPATH, '//*[@id="list-of-favorites"]//a[@data-zone="title"]')
