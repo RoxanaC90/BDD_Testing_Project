@@ -1,10 +1,10 @@
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from driver import Driver
+from browser import Browser
 
 
-class BasePage(Driver):
+class BasePage(Browser):
     def go_to(self, page):
         return self.driver.get(page)
 

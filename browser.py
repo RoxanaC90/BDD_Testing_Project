@@ -4,7 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import unittest
 
 
-class Driver(unittest.TestCase):
+class Browser(unittest.TestCase):
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
     driver.implicitly_wait(10)
